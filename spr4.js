@@ -7,34 +7,30 @@ class Book {
     getDescription() { // абстрактний метод (заглушка)
         throw new Error("You must implement the method getDescription()")
     }
+    getAuthor() {
+        return `${this._author} is author`
+    }
 }
 
 class FictionBook extends Book {
     #plot; // private
-    constructor(title, _author,plot) {
-        super(title, _author); // посилання на батьківський клас
+    constructor(title, author,plot) {
+        super(title, author); // посилання на батьківський клас
         this.#plot = plot; // private
     }
     getDescription() { // поліморфізм
         return `Fiction: "${this.title}" by ${this._author}. Plot: ${this.#plot}`;
     }
-    getAuthor() {
-        return `${this._author} is author`
-    }
-
 }
 
 class ScienceBook extends Book {
     #topic;
-    constructor(title,_author, topic) {
-        super(title, _author); // посилання на батьківський клас
+    constructor(title, author, topic) {
+        super(title, author); // посилання на батьківський клас
         this.#topic = topic; // private
     }
     getDescription() { // поліморфізм
         return `Science: "${this.title}" by ${this._author}. Topic: ${this.#topic}`
-    }
-    getAuthor() {
-        return `${this._author} is author`
     }
 }
 
