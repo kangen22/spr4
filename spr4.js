@@ -1,7 +1,7 @@
 
 class Book {
-    constructor(title, _author) {
-        this.title = title; // public
+    constructor(_title, _author) {
+        this._title = _title; // changed from public to protected
         this._author = _author; // protected
     }
     getDescription() { // абстрактний метод (заглушка)
@@ -19,7 +19,7 @@ class FictionBook extends Book {
         this.#plot = plot; // private
     }
     getDescription() { // поліморфізм
-        return `Fiction: "${this.title}" by ${this._author}. Plot: ${this.#plot}`;
+        return `Fiction: "${this._title}" by ${this._author}. Plot: ${this.#plot}`;
     }
 }
 
@@ -30,7 +30,7 @@ class ScienceBook extends Book {
         this.#topic = topic; // private
     }
     getDescription() { // поліморфізм
-        return `Science: "${this.title}" by ${this._author}. Topic: ${this.#topic}`
+        return `Science: "${this._title}" by ${this._author}. Topic: ${this.#topic}`
     }
 }
 
